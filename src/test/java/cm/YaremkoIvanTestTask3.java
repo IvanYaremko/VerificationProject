@@ -32,7 +32,7 @@ public class YaremkoIvanTestTask3 {
     void testCase2() {
         ArrayList<Period> normalPeriods = new ArrayList<>(Arrays.asList(new Period(9, 13), new Period(13, 18)));
         ArrayList<Period> reducedPeriods = new ArrayList<>(Arrays.asList(new Period(18, 24), new Period(1, 9)));
-        BigDecimal normalRate = new BigDecimal(1);
+        BigDecimal normalRate = new BigDecimal(0);
         BigDecimal reducedRate = new BigDecimal(1);
         Assertions.assertThrows(IllegalArgumentException.class, () ->
                 new Rate(CarParkKind.STAFF, normalRate, reducedRate, reducedPeriods, normalPeriods));
@@ -116,7 +116,7 @@ public class YaremkoIvanTestTask3 {
         ArrayList<Period> reducedPeriods = new ArrayList<>(Arrays.asList(new Period(18, 24), new Period(1, 9)));
         BigDecimal normalRate = new BigDecimal(0);
         BigDecimal reducedRate = new BigDecimal(0);
-        Assertions.assertThrows(IllegalArgumentException.class, () ->
+        Assertions.assertDoesNotThrow(() ->
                 new Rate(CarParkKind.STAFF, normalRate, reducedRate, reducedPeriods, normalPeriods));
     }
 

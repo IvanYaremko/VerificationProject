@@ -1,7 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="cm.YaremkoIvanTestTask3" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-03-29T19:16:10" hostname="DESKTOP-5RES4DA" time="0.021">
+<testsuite name="cm.YaremkoIvanTestTask3" tests="25" skipped="0" failures="0" errors="0" timestamp="2022-03-29T19:31:41" hostname="DESKTOP-5RES4DA" time="0.044">
   <properties/>
-  <testcase name="testCase25()" classname="cm.YaremkoIvanTestTask3" time="0.021"/>
+  <testcase name="testCas23()" classname="cm.YaremkoIvanTestTask3" time="0.016"/>
+  <testcase name="testCas24()" classname="cm.YaremkoIvanTestTask3" time="0.001"/>
+  <testcase name="testCase1()" classname="cm.YaremkoIvanTestTask3" time="0.001"/>
+  <testcase name="testCase2()" classname="cm.YaremkoIvanTestTask3" time="0.001"/>
+  <testcase name="testCase3()" classname="cm.YaremkoIvanTestTask3" time="0.002"/>
+  <testcase name="testCase4()" classname="cm.YaremkoIvanTestTask3" time="0.001"/>
+  <testcase name="testCase5()" classname="cm.YaremkoIvanTestTask3" time="0.001"/>
+  <testcase name="testCase6()" classname="cm.YaremkoIvanTestTask3" time="0.001"/>
+  <testcase name="testCase7()" classname="cm.YaremkoIvanTestTask3" time="0.001"/>
+  <testcase name="testCase8()" classname="cm.YaremkoIvanTestTask3" time="0.001"/>
+  <testcase name="testCase9()" classname="cm.YaremkoIvanTestTask3" time="0.0"/>
+  <testcase name="testCase10()" classname="cm.YaremkoIvanTestTask3" time="0.001"/>
+  <testcase name="testCase11()" classname="cm.YaremkoIvanTestTask3" time="0.001"/>
+  <testcase name="testCase12()" classname="cm.YaremkoIvanTestTask3" time="0.001"/>
+  <testcase name="testCase13()" classname="cm.YaremkoIvanTestTask3" time="0.001"/>
+  <testcase name="testCase14()" classname="cm.YaremkoIvanTestTask3" time="0.001"/>
+  <testcase name="testCase15()" classname="cm.YaremkoIvanTestTask3" time="0.001"/>
+  <testcase name="testCase16()" classname="cm.YaremkoIvanTestTask3" time="0.0"/>
+  <testcase name="testCase17()" classname="cm.YaremkoIvanTestTask3" time="0.0"/>
+  <testcase name="testCase18()" classname="cm.YaremkoIvanTestTask3" time="0.001"/>
+  <testcase name="testCase19()" classname="cm.YaremkoIvanTestTask3" time="0.001"/>
+  <testcase name="testCase20()" classname="cm.YaremkoIvanTestTask3" time="0.0"/>
+  <testcase name="testCase21()" classname="cm.YaremkoIvanTestTask3" time="0.001"/>
+  <testcase name="testCase22()" classname="cm.YaremkoIvanTestTask3" time="0.002"/>
+  <testcase name="testCase25()" classname="cm.YaremkoIvanTestTask3" time="0.001"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
