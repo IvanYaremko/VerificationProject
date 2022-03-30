@@ -10,6 +10,7 @@ public class Rate {
     private BigDecimal hourlyReducedRate;
     private ArrayList<Period> reduced = new ArrayList<>();
     private ArrayList<Period> normal = new ArrayList<>();
+    private CalculateContext calculateContext;
 
     public Rate(CarParkKind kind, BigDecimal normalRate, BigDecimal reducedRate, ArrayList<Period> reducedPeriods
             , ArrayList<Period> normalPeriods) {
@@ -100,18 +101,21 @@ public class Rate {
 
         switch (this.kind) {
             case VISITOR:
-                VisitorRate visitor = new VisitorRate();
-                fee = visitor.calculateFee(fee).setScale(rounding);
+                calculateContext = new CalculateContext(new VisitorRate());
+                fee = calculateContext.calculateFee(fee).setScale(rounding);
                 break;
             case MANAGEMENT:
-                ManagementRate management = new ManagementRate();
-                fee = management.calculateFee(fee).setScale(rounding);
+                calculateContext = new CalculateContext(new ManagementRate());
+                fee = calculateContext.calculateFee(fee).setScale(rounding);
+                break;
             case STUDENT:
-                StudentRate student = new StudentRate();
-                fee = student.calculateFee(fee).setScale(2);
+                calculateContext = new CalculateContext(new StudentRate());
+                fee = calculateContext.calculateFee(fee).setScale(rounding);
+                break;
             case STAFF:
-                StaffRate staff = new StaffRate();
-                fee = staff.calculateFee(fee);
+                calculateContext = new CalculateContext(new StaffRate());
+                fee = calculateContext.calculateFee(fee);
+                break;
         }
 
         return  fee;

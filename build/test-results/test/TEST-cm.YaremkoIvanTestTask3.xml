@@ -1,7 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="cm.YaremkoIvanTestTask3" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-03-30T10:15:41" hostname="DESKTOP-5RES4DA" time="0.017">
+<testsuite name="cm.YaremkoIvanTestTask3" tests="36" skipped="0" failures="0" errors="0" timestamp="2022-03-30T10:51:40" hostname="DESKTOP-5RES4DA" time="0.109">
   <properties/>
-  <testcase name="rateCalculateStaffTest2()" classname="cm.YaremkoIvanTestTask3" time="0.017"/>
+  <testcase name="testCas23()" classname="cm.YaremkoIvanTestTask3" time="0.034"/>
+  <testcase name="testCas24()" classname="cm.YaremkoIvanTestTask3" time="0.002"/>
+  <testcase name="testCase1()" classname="cm.YaremkoIvanTestTask3" time="0.001"/>
+  <testcase name="testCase2()" classname="cm.YaremkoIvanTestTask3" time="0.001"/>
+  <testcase name="testCase3()" classname="cm.YaremkoIvanTestTask3" time="0.003"/>
+  <testcase name="testCase4()" classname="cm.YaremkoIvanTestTask3" time="0.001"/>
+  <testcase name="testCase5()" classname="cm.YaremkoIvanTestTask3" time="0.002"/>
+  <testcase name="testCase6()" classname="cm.YaremkoIvanTestTask3" time="0.002"/>
+  <testcase name="testCase7()" classname="cm.YaremkoIvanTestTask3" time="0.001"/>
+  <testcase name="testCase8()" classname="cm.YaremkoIvanTestTask3" time="0.001"/>
+  <testcase name="testCase9()" classname="cm.YaremkoIvanTestTask3" time="0.002"/>
+  <testcase name="rateCalculateManagerTest1()" classname="cm.YaremkoIvanTestTask3" time="0.006"/>
+  <testcase name="rateCalculateManagerTest2()" classname="cm.YaremkoIvanTestTask3" time="0.001"/>
+  <testcase name="rateCalculateManagerTest3()" classname="cm.YaremkoIvanTestTask3" time="0.0"/>
+  <testcase name="rateCalculateManagerTest4()" classname="cm.YaremkoIvanTestTask3" time="0.001"/>
+  <testcase name="rateCalculateStaffTest1()" classname="cm.YaremkoIvanTestTask3" time="0.001"/>
+  <testcase name="rateCalculateStaffTest2()" classname="cm.YaremkoIvanTestTask3" time="0.001"/>
+  <testcase name="testCase10()" classname="cm.YaremkoIvanTestTask3" time="0.001"/>
+  <testcase name="testCase11()" classname="cm.YaremkoIvanTestTask3" time="0.001"/>
+  <testcase name="testCase12()" classname="cm.YaremkoIvanTestTask3" time="0.001"/>
+  <testcase name="testCase13()" classname="cm.YaremkoIvanTestTask3" time="0.002"/>
+  <testcase name="testCase14()" classname="cm.YaremkoIvanTestTask3" time="0.001"/>
+  <testcase name="testCase15()" classname="cm.YaremkoIvanTestTask3" time="0.001"/>
+  <testcase name="testCase16()" classname="cm.YaremkoIvanTestTask3" time="0.001"/>
+  <testcase name="testCase17()" classname="cm.YaremkoIvanTestTask3" time="0.001"/>
+  <testcase name="testCase18()" classname="cm.YaremkoIvanTestTask3" time="0.001"/>
+  <testcase name="testCase19()" classname="cm.YaremkoIvanTestTask3" time="0.001"/>
+  <testcase name="testCase20()" classname="cm.YaremkoIvanTestTask3" time="0.001"/>
+  <testcase name="testCase21()" classname="cm.YaremkoIvanTestTask3" time="0.001"/>
+  <testcase name="testCase22()" classname="cm.YaremkoIvanTestTask3" time="0.001"/>
+  <testcase name="testCase25()" classname="cm.YaremkoIvanTestTask3" time="0.002"/>
+  <testcase name="rateCalculateVisitorTest1()" classname="cm.YaremkoIvanTestTask3" time="0.002"/>
+  <testcase name="rateCalculateVisitorTest2()" classname="cm.YaremkoIvanTestTask3" time="0.0"/>
+  <testcase name="rateCalculateStudentTest1()" classname="cm.YaremkoIvanTestTask3" time="0.002"/>
+  <testcase name="rateCalculateStudentTest2()" classname="cm.YaremkoIvanTestTask3" time="0.0"/>
+  <testcase name="rateCalculateStudentTest3()" classname="cm.YaremkoIvanTestTask3" time="0.001"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
