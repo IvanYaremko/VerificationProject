@@ -306,20 +306,20 @@ public class YaremkoIvanTestTask3 {
         BigDecimal normalRate = new BigDecimal(2);
         BigDecimal reducedRate = new BigDecimal(2);
         Assertions.assertDoesNotThrow(() ->
-                new Rate(CarParkKind.STAFF, normalRate, reducedRate, normalPeriods, reducedPeriods));
+                new Rate(CarParkKind.STAFF, normalRate, reducedRate, reducedPeriods, normalPeriods ));
     }
 
     /**
      * Test case to check visitor gets €10 discount
       */
     @Test
-    void rateVisitorTest1() {
+    void rateCalculateVisitorTest1() {
         ArrayList<Period> normalPeriods = new ArrayList<>(Arrays.asList(new Period(9, 13), new Period(13, 18)));
         ArrayList<Period> reducedPeriods = new ArrayList<>(Arrays.asList(new Period(18, 24), new Period(1, 9)));
         BigDecimal normalRate = new BigDecimal(5);
         BigDecimal reducedRate = new BigDecimal(2);
-        Rate rate = new Rate(CarParkKind.VISITOR, normalRate, reducedRate, normalPeriods, reducedPeriods);
-        Assertions.assertEquals(new BigDecimal(0), rate.calculate(new Period(9,11)));
+        Rate rate = new Rate(CarParkKind.VISITOR, normalRate, reducedRate, reducedPeriods, normalPeriods);
+        Assertions.assertEquals(new BigDecimal("0.00"), rate.calculate(new Period(9,11)));
     }
 
     /**
@@ -331,7 +331,7 @@ public class YaremkoIvanTestTask3 {
         ArrayList<Period> reducedPeriods = new ArrayList<>(Arrays.asList(new Period(18, 24), new Period(1, 9)));
         BigDecimal normalRate = new BigDecimal(5);
         BigDecimal reducedRate = new BigDecimal(2);
-        Rate rate = new Rate(CarParkKind.VISITOR, normalRate, reducedRate, normalPeriods, reducedPeriods);
+        Rate rate = new Rate(CarParkKind.VISITOR, normalRate, reducedRate, reducedPeriods, normalPeriods );
         Assertions.assertEquals(new BigDecimal("2.50"), rate.calculate(new Period(9,12)));
     }
 
@@ -344,7 +344,7 @@ public class YaremkoIvanTestTask3 {
         ArrayList<Period> reducedPeriods = new ArrayList<>(Arrays.asList(new Period(18, 23), new Period(2, 4)));
         BigDecimal normalRate = new BigDecimal(5);
         BigDecimal reducedRate = new BigDecimal(2);
-        Rate rate = new Rate(CarParkKind.MANAGEMENT, normalRate, reducedRate, normalPeriods, reducedPeriods);
+        Rate rate = new Rate(CarParkKind.MANAGEMENT, normalRate, reducedRate, reducedPeriods, normalPeriods);
         Assertions.assertEquals(new BigDecimal("4.00"), rate.calculate(new Period(5,7)));
     }
 
@@ -357,7 +357,7 @@ public class YaremkoIvanTestTask3 {
         ArrayList<Period> reducedPeriods = new ArrayList<>(Arrays.asList(new Period(18, 23), new Period(1, 9)));
         BigDecimal normalRate = new BigDecimal(2);
         BigDecimal reducedRate = new BigDecimal(1);
-        Rate rate = new Rate(CarParkKind.MANAGEMENT, normalRate, reducedRate, normalPeriods, reducedPeriods);
+        Rate rate = new Rate(CarParkKind.MANAGEMENT, normalRate, reducedRate, reducedPeriods, normalPeriods);
         Assertions.assertEquals(new BigDecimal("4.00"), rate.calculate(new Period(9,10)));
     }
 
@@ -370,7 +370,7 @@ public class YaremkoIvanTestTask3 {
         ArrayList<Period> reducedPeriods = new ArrayList<>(Arrays.asList(new Period(18, 23), new Period(1, 9)));
         BigDecimal normalRate = new BigDecimal(2);
         BigDecimal reducedRate = new BigDecimal(1);
-        Rate rate = new Rate(CarParkKind.MANAGEMENT, normalRate, reducedRate, normalPeriods, reducedPeriods);
+        Rate rate = new Rate(CarParkKind.MANAGEMENT, normalRate, reducedRate, reducedPeriods, normalPeriods);
         Assertions.assertEquals(new BigDecimal("4.00"), rate.calculate(new Period(18,19)));
     }
 
@@ -383,7 +383,7 @@ public class YaremkoIvanTestTask3 {
         ArrayList<Period> reducedPeriods = new ArrayList<>(Arrays.asList(new Period(18, 23), new Period(1, 9)));
         BigDecimal normalRate = new BigDecimal(5);
         BigDecimal reducedRate = new BigDecimal(1);
-        Rate rate = new Rate(CarParkKind.MANAGEMENT, normalRate, reducedRate, normalPeriods, reducedPeriods);
+        Rate rate = new Rate(CarParkKind.MANAGEMENT, normalRate, reducedRate, reducedPeriods, normalPeriods);
         Assertions.assertEquals(new BigDecimal("10.00"), rate.calculate(new Period(9,11)));
     }
 
@@ -396,7 +396,7 @@ public class YaremkoIvanTestTask3 {
         ArrayList<Period> reducedPeriods = new ArrayList<>(Arrays.asList(new Period(18, 23), new Period(1, 9)));
         BigDecimal normalRate = new BigDecimal(2);
         BigDecimal reducedRate = new BigDecimal(1);
-        Rate rate = new Rate(CarParkKind.MANAGEMENT, normalRate, reducedRate, normalPeriods, reducedPeriods);
+        Rate rate = new Rate(CarParkKind.MANAGEMENT, normalRate, reducedRate, reducedPeriods, normalPeriods);
         Assertions.assertEquals(new BigDecimal("2.00"), rate.calculate(new Period(9,11)));
     }
 
@@ -409,7 +409,7 @@ public class YaremkoIvanTestTask3 {
         ArrayList<Period> reducedPeriods = new ArrayList<>(Arrays.asList(new Period(18, 23), new Period(1, 9)));
         BigDecimal normalRate = new BigDecimal("2.25");
         BigDecimal reducedRate = new BigDecimal(1);
-        Rate rate = new Rate(CarParkKind.MANAGEMENT, normalRate, reducedRate, normalPeriods, reducedPeriods);
+        Rate rate = new Rate(CarParkKind.MANAGEMENT, normalRate, reducedRate, reducedPeriods, normalPeriods);
         Assertions.assertEquals(new BigDecimal("5.50"), rate.calculate(new Period(11,14)));
     }
 
@@ -422,7 +422,7 @@ public class YaremkoIvanTestTask3 {
         ArrayList<Period> reducedPeriods = new ArrayList<>(Arrays.asList(new Period(18, 23), new Period(1, 9)));
         BigDecimal normalRate = new BigDecimal(5);
         BigDecimal reducedRate = new BigDecimal(1);
-        Rate rate = new Rate(CarParkKind.MANAGEMENT, normalRate, reducedRate, normalPeriods, reducedPeriods);
+        Rate rate = new Rate(CarParkKind.MANAGEMENT, normalRate, reducedRate, reducedPeriods, normalPeriods);
         Assertions.assertEquals(new BigDecimal("7.50"), rate.calculate(new Period(9,11)));
     }
 
@@ -435,7 +435,7 @@ public class YaremkoIvanTestTask3 {
         ArrayList<Period> reducedPeriods = new ArrayList<>(Arrays.asList(new Period(18, 23), new Period(1, 9)));
         BigDecimal normalRate = new BigDecimal(10);
         BigDecimal reducedRate = new BigDecimal(1);
-        Rate rate = new Rate(CarParkKind.MANAGEMENT, normalRate, reducedRate, normalPeriods, reducedPeriods);
+        Rate rate = new Rate(CarParkKind.MANAGEMENT, normalRate, reducedRate, reducedPeriods, normalPeriods);
         Assertions.assertEquals(new BigDecimal("16"), rate.calculate(new Period(9,12)));
     }
 
