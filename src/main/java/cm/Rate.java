@@ -106,6 +106,9 @@ public class Rate {
             case MANAGEMENT:
                 ManagementRate management = new ManagementRate();
                 fee = management.calculateFee(fee).setScale(rounding);
+            case STUDENT:
+                StudentRate student = new StudentRate();
+                fee = student.calculateFee(fee).setScale(2);
         }
 
         return  fee;

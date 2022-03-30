@@ -388,7 +388,7 @@ public class YaremkoIvanTestTask3 {
     }
 
     /**
-     * Test case to check student pays above below €5.50 without discount applied
+     * Test case to check student pays  below €5.50 without discount applied
      */
     @Test
     void rateCalculateStudentTest1() {
@@ -397,7 +397,7 @@ public class YaremkoIvanTestTask3 {
         BigDecimal normalRate = new BigDecimal(2);
         BigDecimal reducedRate = new BigDecimal(1);
         Rate rate = new Rate(CarParkKind.MANAGEMENT, normalRate, reducedRate, reducedPeriods, normalPeriods);
-        Assertions.assertEquals(new BigDecimal("2.00"), rate.calculate(new Period(9,11)));
+        Assertions.assertEquals(new BigDecimal("4.00"), rate.calculate(new Period(9,11)));
     }
 
     /**
@@ -407,10 +407,10 @@ public class YaremkoIvanTestTask3 {
     void rateCalculateStudentTest2() {
         ArrayList<Period> normalPeriods = new ArrayList<>(Arrays.asList(new Period(9, 13), new Period(13, 18)));
         ArrayList<Period> reducedPeriods = new ArrayList<>(Arrays.asList(new Period(18, 23), new Period(1, 9)));
-        BigDecimal normalRate = new BigDecimal("2.25");
+        BigDecimal normalRate = new BigDecimal("2.75");
         BigDecimal reducedRate = new BigDecimal(1);
         Rate rate = new Rate(CarParkKind.MANAGEMENT, normalRate, reducedRate, reducedPeriods, normalPeriods);
-        Assertions.assertEquals(new BigDecimal("5.50"), rate.calculate(new Period(11,14)));
+        Assertions.assertEquals(new BigDecimal("5.50"), rate.calculate(new Period(9,11)));
     }
 
     /**
