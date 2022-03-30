@@ -103,6 +103,9 @@ public class Rate {
                 VisitorRate visitor = new VisitorRate();
                 fee = visitor.calculateFee(fee).setScale(rounding);
                 break;
+            case MANAGEMENT:
+                ManagementRate management = new ManagementRate();
+                fee = management.calculateFee(fee).setScale(rounding);
         }
 
         return  fee;
