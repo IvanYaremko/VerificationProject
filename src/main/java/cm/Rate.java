@@ -38,6 +38,7 @@ public class Rate {
         this.hourlyReducedRate = reducedRate;
         this.reduced = reducedPeriods;
         this.normal = normalPeriods;
+        this.calculateContext = new CalculateContext(this.kind);
     }
 
     /**
@@ -98,27 +99,7 @@ public class Rate {
         BigDecimal fee = this.hourlyNormalRate.multiply(BigDecimal.valueOf(normalRateHours))
                                 .add(this.hourlyReducedRate.multiply(BigDecimal.valueOf(reducedRateHours)));
 
-
-        switch (this.kind) {
-            case VISITOR:
-                calculateContext = new CalculateContext(new VisitorRate());
-                fee = calculateContext.calculateFee(fee).setScale(rounding);
-                break;
-            case MANAGEMENT:
-                calculateContext = new CalculateContext(new ManagementRate());
-                fee = calculateContext.calculateFee(fee).setScale(rounding);
-                break;
-            case STUDENT:
-                calculateContext = new CalculateContext(new StudentRate());
-                fee = calculateContext.calculateFee(fee).setScale(rounding);
-                break;
-            case STAFF:
-                calculateContext = new CalculateContext(new StaffRate());
-                fee = calculateContext.calculateFee(fee);
-                break;
-        }
-
-        return  fee;
+        return  calculateContext.calculateFee(fee);
     }
 
 }

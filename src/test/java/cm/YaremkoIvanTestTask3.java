@@ -277,7 +277,7 @@ public class YaremkoIvanTestTask3 {
         BigDecimal reducedRate = new BigDecimal(1);
         Rate rate = new Rate(CarParkKind.STAFF, normalRate, reducedRate, reducedPeriods, normalPeriods);
         Period period = new Period(10, 12);
-        Assertions.assertEquals(new BigDecimal(6), rate.calculate(period));
+        Assertions.assertEquals(new BigDecimal("6.00"), rate.calculate(period));
     }
 
     @Test
@@ -449,7 +449,7 @@ public class YaremkoIvanTestTask3 {
         BigDecimal normalRate = new BigDecimal(2);
         BigDecimal reducedRate = new BigDecimal(1);
         Rate rate = new Rate(CarParkKind.STAFF, normalRate, reducedRate, reducedPeriods, normalPeriods);
-        Assertions.assertEquals(new BigDecimal("6"), rate.calculate(new Period(9,12)));
+        Assertions.assertEquals(new BigDecimal("6.00"), rate.calculate(new Period(9,12)));
     }
 
 }
