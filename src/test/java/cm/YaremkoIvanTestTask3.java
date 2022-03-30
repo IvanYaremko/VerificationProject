@@ -308,4 +308,135 @@ public class YaremkoIvanTestTask3 {
         Assertions.assertDoesNotThrow(() ->
                 new Rate(CarParkKind.STAFF, normalRate, reducedRate, normalPeriods, reducedPeriods));
     }
+
+    /**
+     * Test case to check visitor gets €10 discount
+      */
+    @Test
+    void rateVisitorTest1() {
+        ArrayList<Period> normalPeriods = new ArrayList<>(Arrays.asList(new Period(9, 13), new Period(13, 18)));
+        ArrayList<Period> reducedPeriods = new ArrayList<>(Arrays.asList(new Period(18, 24), new Period(1, 9)));
+        BigDecimal normalRate = new BigDecimal(5);
+        BigDecimal reducedRate = new BigDecimal(2);
+        Rate rate = new Rate(CarParkKind.VISITOR, normalRate, reducedRate, normalPeriods, reducedPeriods);
+        Assertions.assertEquals(new BigDecimal(0), rate.calculate(new Period(9,11)));
+    }
+
+    /**
+     * Test case to check visitor gets €10 discount, and 50% off
+     */
+    @Test
+    void rateCalculateVisitorTest2() {
+        ArrayList<Period> normalPeriods = new ArrayList<>(Arrays.asList(new Period(9, 13), new Period(13, 18)));
+        ArrayList<Period> reducedPeriods = new ArrayList<>(Arrays.asList(new Period(18, 24), new Period(1, 9)));
+        BigDecimal normalRate = new BigDecimal(5);
+        BigDecimal reducedRate = new BigDecimal(2);
+        Rate rate = new Rate(CarParkKind.VISITOR, normalRate, reducedRate, normalPeriods, reducedPeriods);
+        Assertions.assertEquals(new BigDecimal("2.50"), rate.calculate(new Period(9,12)));
+    }
+
+    /**
+     * Test case to check management pays minimum €4 when staying at "free hours"
+     */
+    @Test
+    void rateCalculateManagerTest1() {
+        ArrayList<Period> normalPeriods = new ArrayList<>(Arrays.asList(new Period(9, 13), new Period(13, 18)));
+        ArrayList<Period> reducedPeriods = new ArrayList<>(Arrays.asList(new Period(18, 23), new Period(2, 4)));
+        BigDecimal normalRate = new BigDecimal(5);
+        BigDecimal reducedRate = new BigDecimal(2);
+        Rate rate = new Rate(CarParkKind.MANAGEMENT, normalRate, reducedRate, normalPeriods, reducedPeriods);
+        Assertions.assertEquals(new BigDecimal("4.00"), rate.calculate(new Period(5,7)));
+    }
+
+    /**
+     * Test case to check management pays minimum €4 when staying at "normal periods"
+     */
+    @Test
+    void rateCalculateManagerTest2() {
+        ArrayList<Period> normalPeriods = new ArrayList<>(Arrays.asList(new Period(9, 13), new Period(13, 18)));
+        ArrayList<Period> reducedPeriods = new ArrayList<>(Arrays.asList(new Period(18, 23), new Period(1, 9)));
+        BigDecimal normalRate = new BigDecimal(2);
+        BigDecimal reducedRate = new BigDecimal(1);
+        Rate rate = new Rate(CarParkKind.MANAGEMENT, normalRate, reducedRate, normalPeriods, reducedPeriods);
+        Assertions.assertEquals(new BigDecimal("4.00"), rate.calculate(new Period(9,10)));
+    }
+
+    /**
+     * Test case to check management pays minimum €4 when staying at "reduced periods"
+     */
+    @Test
+    void rateCalculateManagerTest3() {
+        ArrayList<Period> normalPeriods = new ArrayList<>(Arrays.asList(new Period(9, 13), new Period(13, 18)));
+        ArrayList<Period> reducedPeriods = new ArrayList<>(Arrays.asList(new Period(18, 23), new Period(1, 9)));
+        BigDecimal normalRate = new BigDecimal(2);
+        BigDecimal reducedRate = new BigDecimal(1);
+        Rate rate = new Rate(CarParkKind.MANAGEMENT, normalRate, reducedRate, normalPeriods, reducedPeriods);
+        Assertions.assertEquals(new BigDecimal("4.00"), rate.calculate(new Period(18,19)));
+    }
+
+    /**
+     * Test case to check management pays above €4 when staying at "normal periods"
+     */
+    @Test
+    void rateCalculateManagerTest4() {
+        ArrayList<Period> normalPeriods = new ArrayList<>(Arrays.asList(new Period(9, 13), new Period(13, 18)));
+        ArrayList<Period> reducedPeriods = new ArrayList<>(Arrays.asList(new Period(18, 23), new Period(1, 9)));
+        BigDecimal normalRate = new BigDecimal(5);
+        BigDecimal reducedRate = new BigDecimal(1);
+        Rate rate = new Rate(CarParkKind.MANAGEMENT, normalRate, reducedRate, normalPeriods, reducedPeriods);
+        Assertions.assertEquals(new BigDecimal("10.00"), rate.calculate(new Period(9,11)));
+    }
+
+    /**
+     * Test case to check student pays above below €5.50 without discount applied
+     */
+    @Test
+    void rateCalculateStudentTest1() {
+        ArrayList<Period> normalPeriods = new ArrayList<>(Arrays.asList(new Period(9, 13), new Period(13, 18)));
+        ArrayList<Period> reducedPeriods = new ArrayList<>(Arrays.asList(new Period(18, 23), new Period(1, 9)));
+        BigDecimal normalRate = new BigDecimal(2);
+        BigDecimal reducedRate = new BigDecimal(1);
+        Rate rate = new Rate(CarParkKind.MANAGEMENT, normalRate, reducedRate, normalPeriods, reducedPeriods);
+        Assertions.assertEquals(new BigDecimal("2.00"), rate.calculate(new Period(9,11)));
+    }
+
+    /**
+     * Test case to check student pays exactly €5.50 without discount applied
+     */
+    @Test
+    void rateCalculateStudentTest2() {
+        ArrayList<Period> normalPeriods = new ArrayList<>(Arrays.asList(new Period(9, 13), new Period(13, 18)));
+        ArrayList<Period> reducedPeriods = new ArrayList<>(Arrays.asList(new Period(18, 23), new Period(1, 9)));
+        BigDecimal normalRate = new BigDecimal("2.25");
+        BigDecimal reducedRate = new BigDecimal(1);
+        Rate rate = new Rate(CarParkKind.MANAGEMENT, normalRate, reducedRate, normalPeriods, reducedPeriods);
+        Assertions.assertEquals(new BigDecimal("5.50"), rate.calculate(new Period(11,14)));
+    }
+
+    /**
+     * Test case to check student pays above €5.50 with a 25% discount applied
+     */
+    @Test
+    void rateCalculateStudentTest3() {
+        ArrayList<Period> normalPeriods = new ArrayList<>(Arrays.asList(new Period(9, 13), new Period(13, 18)));
+        ArrayList<Period> reducedPeriods = new ArrayList<>(Arrays.asList(new Period(18, 23), new Period(1, 9)));
+        BigDecimal normalRate = new BigDecimal(5);
+        BigDecimal reducedRate = new BigDecimal(1);
+        Rate rate = new Rate(CarParkKind.MANAGEMENT, normalRate, reducedRate, normalPeriods, reducedPeriods);
+        Assertions.assertEquals(new BigDecimal("7.50"), rate.calculate(new Period(9,11)));
+    }
+
+    /**
+     * Test case to check staff pays max €16.
+     */
+    @Test
+    void rateCalculateStaffTest1() {
+        ArrayList<Period> normalPeriods = new ArrayList<>(Arrays.asList(new Period(9, 13), new Period(13, 18)));
+        ArrayList<Period> reducedPeriods = new ArrayList<>(Arrays.asList(new Period(18, 23), new Period(1, 9)));
+        BigDecimal normalRate = new BigDecimal(10);
+        BigDecimal reducedRate = new BigDecimal(1);
+        Rate rate = new Rate(CarParkKind.MANAGEMENT, normalRate, reducedRate, normalPeriods, reducedPeriods);
+        Assertions.assertEquals(new BigDecimal("16"), rate.calculate(new Period(9,12)));
+    }
+
 }
