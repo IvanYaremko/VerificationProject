@@ -38,7 +38,7 @@ public class Rate {
         this.hourlyReducedRate = reducedRate;
         this.reduced = reducedPeriods;
         this.normal = normalPeriods;
-        this.calculateContext = new CalculateContext(this.kind);
+        this.calculateContext = new CalculateContext(kind);
     }
 
     /**
