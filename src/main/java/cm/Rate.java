@@ -109,6 +109,9 @@ public class Rate {
             case STUDENT:
                 StudentRate student = new StudentRate();
                 fee = student.calculateFee(fee).setScale(2);
+            case STAFF:
+                StaffRate staff = new StaffRate();
+                fee = staff.calculateFee(fee);
         }
 
         return  fee;

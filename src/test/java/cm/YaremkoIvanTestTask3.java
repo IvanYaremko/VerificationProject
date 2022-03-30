@@ -435,8 +435,8 @@ public class YaremkoIvanTestTask3 {
         ArrayList<Period> reducedPeriods = new ArrayList<>(Arrays.asList(new Period(18, 23), new Period(1, 9)));
         BigDecimal normalRate = new BigDecimal(10);
         BigDecimal reducedRate = new BigDecimal(1);
-        Rate rate = new Rate(CarParkKind.MANAGEMENT, normalRate, reducedRate, reducedPeriods, normalPeriods);
-        Assertions.assertEquals(new BigDecimal("16"), rate.calculate(new Period(9,12)));
+        Rate rate = new Rate(CarParkKind.STAFF, normalRate, reducedRate, reducedPeriods, normalPeriods);
+        Assertions.assertEquals(new BigDecimal("16.00"), rate.calculate(new Period(9,12)));
     }
 
 }
