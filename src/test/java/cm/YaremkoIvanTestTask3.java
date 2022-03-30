@@ -92,6 +92,27 @@ public class YaremkoIvanTestTask3 {
         Assertions.assertDoesNotThrow(() -> new Rate(CarParkKind.STAFF, normalRate, reducedRate, reducedPeriods, normalPeriods));
     }
 
+    @Test
+    void testCaseReducedRateNull() {
+        ArrayList<Period> normalPeriods = new ArrayList<>(Arrays.asList(new Period(9, 13), new Period(13, 18)));
+        ArrayList<Period> reducedPeriods = new ArrayList<>(Arrays.asList(new Period(18, 24), new Period(1, 9)));
+        BigDecimal normalRate = new BigDecimal(2);
+        BigDecimal reducedRate = new BigDecimal(1);
+        Assertions.assertThrows(IllegalArgumentException.class, () ->
+                new Rate(CarParkKind.STAFF, normalRate, null, reducedPeriods, normalPeriods));
+    }
+
+    @Test
+    void testCaseNormalPeriodNull() {
+        ArrayList<Period> normalPeriods = new ArrayList<>(Arrays.asList(new Period(9, 13), new Period(13, 18)));
+        ArrayList<Period> reducedPeriods = new ArrayList<>(Arrays.asList(new Period(18, 24), new Period(1, 9)));
+        BigDecimal normalRate = new BigDecimal(2);
+        BigDecimal reducedRate = new BigDecimal(1);
+        Assertions.assertThrows(IllegalArgumentException.class, () ->
+                new Rate(CarParkKind.STAFF, normalRate, reducedRate, reducedPeriods, null));
+    }
+
+
     /**
      * Testing partition normalRate < 0 OR reducedRate < 0
      * Expect exception thrown
@@ -452,4 +473,13 @@ public class YaremkoIvanTestTask3 {
         Assertions.assertEquals(new BigDecimal("6.00"), rate.calculate(new Period(9,12)));
     }
 
+    @Test
+    public void testRateIsValidPeriod1(){
+        ArrayList<Period> normalPeriods = new ArrayList<>(Arrays.asList(new Period(0,12), new Period(14,18), new Period(15,24)));
+        ArrayList<Period> reducedPeriods = new ArrayList<>(Arrays.asList(new Period(13,14)));
+        BigDecimal normalRate = new BigDecimal(5);
+        BigDecimal reducedRate = new BigDecimal(2);
+        Assertions.assertThrows(IllegalArgumentException.class, () ->
+                new Rate(CarParkKind.VISITOR, normalRate, reducedRate, reducedPeriods, normalPeriods));
+    }
 }
