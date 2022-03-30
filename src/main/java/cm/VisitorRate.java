@@ -8,7 +8,7 @@ public class VisitorRate implements ICalculate {
         BigDecimal amountFree = new BigDecimal("10.00");
         BigDecimal discountRate = new BigDecimal("0.50");
 
-        if(fee.compareTo(amountFree) == -1){
+        if(fee.compareTo(amountFree) <= 0){
             return BigDecimal.ZERO;
         } else{
             return (fee.subtract(amountFree)).multiply(discountRate);
